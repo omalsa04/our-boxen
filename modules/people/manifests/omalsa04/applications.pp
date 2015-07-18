@@ -12,10 +12,10 @@ class people::omalsa04::applications(
   include vlc
   include tmux
   include java
-
   include zsh
   include homebrew
   include iterm2::dev
+  include gdb
 
  $homebrew_packages = [
     'tree',
@@ -24,7 +24,8 @@ class people::omalsa04::applications(
     'wget',
     'python',
     'python3',
-	'zsh-completions',
+	  'zsh-completions',
+    'hg',
   ]
 
   ## Declare all Homebrew packages at once

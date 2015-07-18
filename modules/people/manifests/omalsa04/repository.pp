@@ -1,11 +1,12 @@
 class people::omalsa04::repository(
   $my_sourcedir = $people::omalsa04::params::my_sourcedir,
   $my_homedir   = $people::omalsa04::params::my_homedir,
-  $my_username  = $people::omalsa04::params::my_username
+  $my_username  = $people::omalsa04::params::my_username,
+  $my_projects  = $people::omalsa04::params::my_projects
 ) {
 
   ###############################
-  # Git config and repositories #
+  # Git Config/Setup            #
   ###############################
 
   git::config::global{ 'user.name':
@@ -85,12 +86,15 @@ class people::omalsa04::repository(
   }
 
   ###############################
-  # Other Links                 #
+  # CPython Project Setup       #
   ###############################
 
-  file { "/usr/local/share/zsh/site-functions/brew_zsh_completion.zsh":
-    ensure  => link,
-    target  => "/usr/local/Library/Contributions/brew_zsh_completion.zsh",
-    require => Repository["${my_homedir}/.dotfiles"],
+  file { "${my_projects}":
+    ensure  => "directory",
+  }
+
+  repository { "${my_projects}/cpython":
+    source   => 'python/cpython',
+    provider => 'git',
   }
 }
