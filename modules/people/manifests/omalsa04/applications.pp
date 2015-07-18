@@ -22,9 +22,9 @@ class people::omalsa04::applications(
     'curl',
     'gawk',
     'wget',
-    'tmux',
     'python',
     'python3',
+	'zsh-completions',
   ]
 
   ## Declare all Homebrew packages at once

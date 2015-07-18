@@ -1,6 +1,6 @@
 # IMPORTANT: Put this in ./modules/shortcut/manifests/init.pp inside your boxen
 # repository. For example, /opt/boxen/repo/modules/shortcut/manifests/init.pp.
- 
+
 # Public: Define a keyboard shortcut for an app. To define the shortcuts, you
 # must assign a key combination to a menu item in the app. You also need the
 # name of the app as identified internally by OS X.
@@ -41,7 +41,7 @@
 # ```
 define shortcut ($app = $title, $menu, $key) {
   $shortcut = regsubst(regsubst(regsubst(regsubst($key, "cmd-", "@"), "ctrl-", "^"), "alt-|opt-", "~"), "shift-", "\$")
- 
+
   exec { "${key} => ${menu}":
     command => "defaults write ${app} NSUserKeyEquivalents -dict-add '${menu}' '${shortcut}'",
     unless  => "defaults read ${app} NSUserKeyEquivalents | grep '${menu}'"

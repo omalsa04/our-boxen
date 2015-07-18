@@ -43,44 +43,54 @@ class people::omalsa04::repository(
     source => 'omalsa04/dotfiles',
   }
 
-  file { "${my_homedir}/.vim":
+  file { "${my_homedir}/.vim/":
     ensure  => link,
-    source  => "${my_homedir}/.dotfiles/",
+    target  => "${my_homedir}/.dotfiles/vim/vim.symlink/",
     require => Repository["${my_homedir}/.dotfiles"],
   }
 
   file { "${my_homedir}/.tmux.conf":
     ensure  => link,
     mode    => '0644',
-    target  => "${my_homedir}/tmux/tmux.conf.symlink",
+    target  => "${my_homedir}/.dotfiles/tmux/tmux.conf.symlink",
     require => Repository["${my_homedir}/.dotfiles"],
   }
 
   file { "${my_homedir}/.dev.tmux.conf":
     ensure  => link,
     mode    => '0644',
-    target  => "${my_homedir}/tmux/dev.tmux.conf.symlink",
+    target  => "${my_homedir}/.dotfiles/tmux/dev.tmux.conf.symlink",
     require => Repository["${my_homedir}/.dotfiles"],
   }
 
   file { "${my_homedir}/.gdbinit":
     ensure  => link,
     mode    => '0644',
-    target  => "${my_homedir}/gdb/gdbinit.symlink",
+    target  => "${my_homedir}/.dotfiles/gdb/gdbinit.symlink",
     require => Repository["${my_homedir}/.dotfiles"],
   }
 
   file { "${my_homedir}/.vimrc":
     ensure  => link,
     mode    => '0644',
-    target  => "${my_homedir}/vim/vimrc.symlink",
+    target  => "${my_homedir}/.dotfiles/vim/vimrc.symlink",
     require => Repository["${my_homedir}/.dotfiles"],
   }
 
   file { "${my_homedir}/.zshrc":
     ensure  => link,
     mode    => '0644',
-    target  => "${my_homedir}/zsh/zshrc.symlink",
+    target  => "${my_homedir}/.dotfiles/zsh/zshrc.symlink",
+    require => Repository["${my_homedir}/.dotfiles"],
+  }
+
+  ###############################
+  # Other Links                 #
+  ###############################
+
+  file { "/usr/local/share/zsh/site-functions/brew_zsh_completion.zsh":
+    ensure  => link,
+    target  => "/usr/local/Library/Contributions/brew_zsh_completion.zsh",
     require => Repository["${my_homedir}/.dotfiles"],
   }
 }

@@ -13,7 +13,7 @@ class people::omalsa04::osx_settings(
   include osx::keyboard::capslock_to_control
   include osx::finder::empty_trash_securely
 
-  $recovery_message = "Samuel O'Malley's Macbook Pro. If found, please email omalsa04@gmail.com or call 0408-423-253."
+  $recovery_message = "Samuel OMalleys Macbook Pro. If found, please email omalsa04@gmail.com or call 0408-423-253."
   osx::recovery_message { $recovery_message: }
 
   # Sane Defaults
@@ -28,15 +28,15 @@ class people::omalsa04::osx_settings(
 
   # Set key repeat speed
   class { 'osx::global::key_repeat_rate':
-    rate => 3
+    rate => 5
   }
 
-  shortcut {
-    'iTerm New Window':
-      app  => 'com.googlecode.iterm2',
-      key  => 'ctrl-shift-x',
-      menu => 'New Window';
-  }
+  #shortcut {
+    #'iTerm New Window':
+      #app  => 'com.googlecode.iterm2',
+      #key  => 'ctrl-shift-x',
+      #menu => 'New Window';
+  #}
 
   boxen::osx_defaults { 'Disable Dashboard':
     key    => 'mcx-disabled',
