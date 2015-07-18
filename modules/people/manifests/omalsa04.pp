@@ -29,7 +29,7 @@ class people::omalsa04 {
     rate => 10
   }
 
-  shortcut {
+  osx::shortcut {
     "iTerm New Window":
       app  => "com.googlecode.iterm2",
       key  => "ctrl-shift-x",
