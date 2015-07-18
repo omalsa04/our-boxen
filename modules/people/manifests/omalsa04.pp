@@ -29,6 +29,13 @@ class people::omalsa04 {
     rate => 10
   }
 
+  shortcut {
+    "iTerm New Window":
+      app  => "com.googlecode.iterm2",
+      key  => "ctrl-shift-x",
+      menu => "New Window";
+  }
+
   # Sane Defaults
   Boxen::Osx_defaults {
     user => $::luser,
