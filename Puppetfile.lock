@@ -34,6 +34,11 @@ GITHUBTARBALL
     gcc (2.2.1)
 
 GITHUBTARBALL
+  remote: boxen/puppet-gdb
+  specs:
+    gdb (1.0.0)
+
+GITHUBTARBALL
   remote: boxen/puppet-git
   specs:
     git (2.7.9)
@@ -176,6 +181,7 @@ DEPENDENCIES
   dropbox (= 1.4.1)
   foreman (= 1.2.0)
   gcc (= 2.2.1)
+  gdb (= 1.0.0)
   git (= 2.7.09)
   go (= 2.1.0)
   homebrew (= 1.12.0)

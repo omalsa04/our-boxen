@@ -70,6 +70,7 @@ github "java",        "1.8.3"
 github "virtualbox",  "1.0.13"
 github "skype",       "1.1.0"
 github "vlc",         "1.1.0"
+github "gdb",         "1.0.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
