@@ -23,6 +23,8 @@ class people::omalsa04::applications(
     'gawk',
     'wget',
     'tmux',
+    'python',
+    'python3',
   ]
 
   ## Declare all Homebrew packages at once

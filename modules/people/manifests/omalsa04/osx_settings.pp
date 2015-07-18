@@ -3,6 +3,7 @@ class people::omalsa04::osx_settings(
   $my_homedir   = $people::omalsa04::params::my_homedir,
   $my_username  = $people::omalsa04::params::my_username
 ) {
+
   include osx::global::tap_to_click
   include osx::global::disable_autocorrect
   include osx::finder::show_all_filename_extensions
@@ -11,6 +12,9 @@ class people::omalsa04::osx_settings(
   include osx::software_update
   include osx::keyboard::capslock_to_control
   include osx::finder::empty_trash_securely
+
+  $recovery_message = "Samuel O'Malley's Macbook Pro. If found, please email omalsa04@gmail.com or call 0408-423-253."
+  osx::recovery_message { $recovery_message: }
 
   # Sane Defaults
   Boxen::Osx_defaults {
