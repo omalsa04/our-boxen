@@ -95,6 +95,5 @@ class people::omalsa04::repository(
 
   repository { "${my_projects}/cpython":
     source   => 'python/cpython',
-    provider => 'git',
   }
 }
