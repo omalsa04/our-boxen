@@ -24,8 +24,9 @@ class people::omalsa04::applications(
     'wget',
     'python',
     'python3',
-	  'zsh-completions',
+    'zsh-completions',
     'hg',
+    'archey',
   ]
 
   ## Declare all Homebrew packages at once
